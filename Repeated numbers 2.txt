@@ -1,0 +1,23 @@
+def find_repeating_numbers(arr):
+    count_dict = {}
+    repeating_numbers = []
+
+    for num in arr:
+        if num in count_dict:
+            count_dict[num] += 1
+        else:
+            count_dict[num] = 1
+
+    for key, value in count_dict.items():
+        if value == 2:
+            repeating_numbers.append(key)
+
+    return sorted(repeating_numbers)
+
+# Input reading and processing
+T = int(input().strip())
+for _ in range(T):
+    N = int(input().strip())
+    arr = list(map(int, input().strip().split()))
+    result = find_repeating_numbers(arr)
+    print(*result)
